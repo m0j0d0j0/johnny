@@ -1,0 +1,56 @@
+.male {
+    background-color: #4a90e2;
+}
+
+.female {
+    background-color: #fd5eab;
+}
+
+.text-male {
+    color: #4a90e2;
+}
+
+.text-female {
+    color: #fd5eab;
+}
+
+.population-container {
+    position: absolute;
+    width: 100%;
+    height: 11px;
+}
+
+.population-bar {
+    position: absolute;
+    height: 10px;
+}
+
+.population-value {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+}
+
+.left.population-value {
+    margin-right: 5px;
+}
+
+.right.population-value {
+    margin-left: 5px;
+}
+
+.range-label {
+    position: absolute;
+    left: 5px;
+    top: 0px;
+    font-size: 8px;
+    text-align: right;
+    width: 30px;
+}
+
+#viz {
+    position: relative;
+    margin-top: 50px;
+    min-height: 300px;
+}

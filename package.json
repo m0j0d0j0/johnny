@@ -1,0 +1,17 @@
+{
+  "name": "census_exercise",
+  "version": "0.1.0",
+  "description": "Census Exercise",
+  "scripts": {
+    "start": "http-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "census",
+    "exercise"
+  ],
+  "author": "Juice Inc",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}

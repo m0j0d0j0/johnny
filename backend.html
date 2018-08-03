@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Juice Tech Test</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="src/css/app.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Juice Tech Test - Backend</h1>
+      <p class="lead">
+        The <a href="/frontend.html">Juice Tech Test - Frontend</a> uses fixture data to power it's visualization.
+        This fixture data is data aggregated across AGE for each SEX only for the state of Alabama and can be found at <a href="data/CENSUS_STATEAGESEX_BINS.json">data/CENSUS_STATEAGESEX_BINS.json</a>.
+      </p>
+
+      <h3>Raw data</h3>
+      <p>
+        The raw data from which the fixture data was created is available at <a href="data/CENSUS_STATEAGESEX.json">data/CENSUS_STATEAGESEX.json</a>.
+        The data in this file consists of three dimensions: STATE, SEX, and AGE and two measures: POP2000 and POP2008. Here's an example:
+      </p>
+      <pre>
+        [
+          {
+            "state": "Alabama",
+            "sex": "M",
+            "age": 0,
+            "pop2000": 30479,
+            "pop2008": 32055
+          },
+          {
+            "state": "Alabama",
+            "sex": "M",
+            "age": 1,
+            "pop2000": 29904,
+            "pop2008": 32321
+          },
+          {
+            "state": "Alabama",
+            "sex": "M",
+            "age": 2,
+            "pop2000": 30065,
+            "pop2008": 31789
+          },
+        ]
+      </pre>
+
+      <p>For instance, the second data row means that Alabama had 29,904 one-year old boys in 2000 and 32,321 one year old boys in 2008.</p>
+
+      <h3>Exercise</h3>
+      <p>
+        We'd like you to create an API that will:
+        <ol>
+          <li>Load the contents of <a href="data/CENSUS_STATEAGESEX.json">data/CENSUS_STATEAGESEX.json</a></li>
+          <li>Aggregate the data across AGE for each STATE and SEX, in 11-year age groups (i.e. 0-10, 11-21, 22-32, etc)</li>
+          <li>Return a result in the same format as the fixture data, <a href="data/CENSUS_STATEAGESEX_BINS.json">data/CENSUS_STATEAGESEX_BINS.json</a></li>
+        </ol>
+        This API should be available at <code>/api/states/age-bins</code> and can be created in any programming language of your choice.
+        The requirement is that we should be able to still use the frontend by replacing its fixture data with the data returned from your API and making no other change to it.
+        At the top of <a href="src/js/app.js">src/js/app.js</a> there is a commented-out <code>ENDPOINT</code> declaration which points at an API server; just uncomment that declaration to test your API.
+      </p>
+
+      <h3>On CORS</h3>
+      <p>
+        Browsers implement a security mechanism called CORS, or Cross-Origin Resource Sharing, which prevents Javascript code from making requests to web servers running on different domains or port numbers than where the Javascript was served from.
+        This may cause some difficulty while implementing this backend API.
+        For example, if the frontend code is hosted on <code>http://localhost:8000/</code>, your web browser may disallow making requests to an API running on <code>http://localhost:8001/</code>.
+      </p>
+      <p>
+        Here are some options for dealing with these restrictions:
+        <ul>
+          <li>
+            In your backend web server, you can serve the frontend files <code>frontend.html</code> and the <code>src/</code> directory.
+            This means that the API and the frontend will be running on the same web server, so Cross-Origin restrictions will not apply.
+          </li>
+          <li>
+            You can load the frontend code with a <code>file:///</code> URL on your local machine.
+            Web browsers may not apply CORS restrictions to such URLs and allow your requests through.
+          </li>
+          <li>
+            You can actually implement the CORS protocol in your backend API to allow requests from different domains/ports.
+            We do not expect you to do this, as the previous options are simpler, but this is certainly acceptable.
+            This involves setting headers like <code>Access-Control-Allow-Origin</code>, <code>Access-Control-Allow-Methods</code>, and <code>Access-Control-Allow-Headers</code>, and also implementing a handler for the <code>OPTIONS</code> HTTP method.
+          </li>
+        </ul>
+      </p>
+    </div>
+  </body>
+</html>

@@ -98,7 +98,7 @@
 
     var visWidth = 700,
         maxBarWidth = 200,
-        containerHeight = 12;
+        containerHeight = 44;
 
     // Get the Men data for the selectecd population year.
     var mData = data.m.map(function(o) {

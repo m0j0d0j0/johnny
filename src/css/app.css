@@ -22,7 +22,7 @@
 
 .population-bar {
     position: absolute;
-    height: 10px;
+    height: 40px;
 }
 
 .population-value {
@@ -46,11 +46,12 @@
     top: 0px;
     font-size: 8px;
     text-align: right;
-    width: 30px;
+    width: 40px;
 }
 
 #viz {
     position: relative;
     margin-top: 50px;
     min-height: 300px;
+    margin-bottom: 125px;
 }
